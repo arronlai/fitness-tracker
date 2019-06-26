@@ -1,7 +1,6 @@
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import React, {Suspense, lazy} from 'react';
 import './App.scss';
-import {withStyles} from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
 const styles = theme => ({
@@ -12,8 +11,9 @@ const styles = theme => ({
         display: 'none'
     }
 });
-const Food = lazy(() => import ('./food/Food'));
-const Sport = lazy(() => import ('./sport/Sport'));
+const Food = lazy(() => import('./food/Food'));
+const Sport = lazy(() => import('./sport/Sport'));
+const Home = lazy(() => import('./home/Home'));
 
 function App() {
     return (
@@ -29,20 +29,10 @@ function App() {
                     <Switch>
                         <Route path="/food" component={Food}></Route>
                         <Route path="/sport" component={Sport}></Route>
+                        <Route path="/" component={Home}></Route>
                     </Switch>
                 </Suspense>
             </Router>
-            <div>
-                <h1>Welcome to FT</h1>
-            </div>
-            <div className="nav">
-                <Button variant="outlined" color="primary" className={'router-btn'}>
-                    <a href="/food">Record food</a>
-                </Button>
-                <Button variant="outlined" color="secondary" className={'router-btn'}>
-                    <a href="/sport">Record sports</a>
-                </Button>
-            </div>
         </div>
     );
 }
