@@ -1,7 +1,6 @@
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import React, {Suspense, lazy} from 'react';
 import './App.scss';
-import Button from '@material-ui/core/Button';
 
 const styles = theme => ({
     button: {
